@@ -33,6 +33,7 @@ let mainArea = document.querySelector("main")
       }
   }
 
+  // Filter Buttons
   const allDivs = Array.from(document.querySelectorAll("div"))
   const mainHeader = document.querySelector("header")
 
