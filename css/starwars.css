@@ -1,23 +1,33 @@
+/* Base Styles */
 html {
     background-color: #000;
+    font-family: 'Orbitron', Helvetica, Arial, sans-serif;
 }
 h1, h2 {
-    font-family: 'Orbitron', Helvetica, Arial, sans-serif;
     color: #ffe81f;
     text-align: center;
 }
+h1 {
+    font-weight: 900;
+    margin-top: 2.5rem;
+}
+h2 {
+    font-weight: 500;
+}
 p {
-    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
     line-height: 1.5;
     color: #fff;
 }
 
+/* Content Styles */
 header {
     display: flex;
     justify-content: center;
 }
 
 button {
+    font-family: 'Orbitron', Helvetica, Arial, sans-serif;
     font-size: 1.5rem;
     margin: 20px;
     padding: 20px;
@@ -33,11 +43,14 @@ main {
     margin: 0 auto;
 }
 
-h1 {
-    font-weight: 900;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+div {
+    background-color: #696969;
+    border-radius: 5px;
 }
-h2 {
-    font-weight: 500;
+div img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 50%;
 }
