@@ -40,27 +40,40 @@ const mainHeader = document.querySelector("header")
 let maleButton = document.createElement("button")
 maleButton.textContent = "Male Characters"
 maleButton.addEventListener("click", () => {
-  femaleCharacters.forEach(character => {
+  maleCharacters.forEach(character => {
     let matchedDiv = allDivs.find(oneDiv => {
       return oneDiv.firstChild.textContent === character.name
     })
-    matchedDiv.setAttribute("style", "display: none;")
+    // matchedDiv.setAttribute("style", "display: none;")
+    matchedDiv.className = "animated infinite bounce slow"
   })
 })
 
 let femaleButton = document.createElement("button")
 femaleButton.textContent = "Female Characters"
 femaleButton.addEventListener("click", () => {
-  maleCharacters.forEach(character => {
+  femaleCharacters.forEach(character => {
     let matchedDiv = allDivs.find(oneDiv => {
       return oneDiv.firstChild.textContent === character.name
     })
-    matchedDiv.setAttribute("style", "display: none;")
+    matchedDiv.className = "animated infinite bounce slow"
+  })
+})
+
+let otherButton = document.createElement("button")
+otherButton.textContent = "Other"
+otherButton.addEventListener("click", () => {
+  otherCharacters.forEach(character => {
+    let matchedDiv = allDivs.find(oneDiv => {
+      return oneDiv.firstChild.textContent === character.name
+    })
+    matchedDiv.className = "animated infinite bounce slow"
   })
 })
 
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
+mainHeader.appendChild(otherButton)
 
 const maleCharacters = people.filter(person => person.gender === "male")
 const femaleCharacters = people.filter(person => person.gender === "female")
