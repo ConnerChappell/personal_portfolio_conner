@@ -13,7 +13,7 @@ people.forEach((person) => {
   let charNum = getCharNumber(person.url)
 
   name.textContent = person.name
-  gender.textContent = person.gender
+  gender.textContent = `Gender: ${person.gender}`
   pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
 
   personDiv.appendChild(name)
@@ -71,10 +71,23 @@ otherButton.addEventListener("click", () => {
   })
 })
 
+let resetButton = document.createElement("button")
+resetButton.textContent = "Reset"
+resetButton.addEventListener("click", () => {
+  resetCharacters.forEach(character => {
+    let matchedDiv = allDivs.find(oneDiv => {
+      return oneDiv.firstChild.textContent === character.name
+    })
+    matchedDiv.className = "animated fadeIn"
+  })
+})
+
 mainHeader.appendChild(maleButton)
 mainHeader.appendChild(femaleButton)
 mainHeader.appendChild(otherButton)
+mainHeader.appendChild(resetButton)
 
 const maleCharacters = people.filter(person => person.gender === "male")
 const femaleCharacters = people.filter(person => person.gender === "female")
 const otherCharacters = people.filter(person => person.gender !== "female" && person.gender !== "male")
+const resetCharacters = people.filter(person => person.gender)
