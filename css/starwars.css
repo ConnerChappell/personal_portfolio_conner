@@ -58,12 +58,14 @@ div img {
     width: 50%;
 }
 
+/* side button */
 #left_column {
     position: fixed;
     margin: 50px;
     width: 50px;
     float: left;
     background-color: #ffe81f;
+    border-radius: 5px;
 }
 #left_column a {
     display: block;
