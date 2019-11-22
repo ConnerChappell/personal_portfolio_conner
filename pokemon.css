@@ -1,0 +1,121 @@
+body{
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+    background-image: url(images/pc_storage_box.png);
+   }
+   .storage {
+    height: 175px;
+    padding-top: 40px;
+    background-image: url(images/pc_storage_box2.png);
+    background-position: center;
+   }
+   h1 {
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 20px 0;
+    background-color: #f8f8f8;
+    border: 10px double #000;
+    border-radius: 10px;
+   }
+   p {
+    font-size: 16px;
+    color: #f8f8f8;
+    /* margin: 0 auto; */
+    padding: 5px;
+   }
+   p.instructions {
+    margin: 2rem 0 2rem 0;
+    text-align: center;
+   }
+    
+   main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 4rem;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      margin-bottom: 5rem;
+   }
+    
+   .picDivs {
+      width: 75%;
+   }
+    
+   .charDivs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+    
+   /* Card Flip CSS */
+   .scene {
+      width: 225px;
+      height: 275px;
+      margin: 20px 0;
+      perspective: 600px;
+    }
+   .card {
+    width: 100%;
+    height: 100%;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+    position: relative;
+   }
+   .card.is-flipped {
+    transform: rotateY(180deg);
+   }
+   .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    backface-visibility: hidden;
+   }
+   .card__face--front {
+    transition: transform .5s;
+   }
+   .card__face--front p {
+    color: #000;
+    opacity: 0;
+    transition: all .5s;
+   }
+   .card__face--front:hover {
+    background-color: #f8f8f8;
+    border: 10px double #000;
+    border-radius: 5px;
+    transform: scale(1.1);
+   }
+   .card__face--front:hover p {
+    opacity: 1;
+   }
+   .card__face--back {
+    background-color: #f8f8f8;
+    border: 10px double #000;
+    border-radius: 5px;
+    transform: rotateY(180deg);
+   }
+   .card__face--back p {
+    color: #000;
+   }
+    
+    /* Button */
+   button#newPokemon {
+    font-family: 'Press Start 2P', Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    display: block;
+    margin: 0 auto;
+    padding: 1.25rem;
+    border: 10px double #000;
+    border-radius: 10px;
+   }
+   button#newPokemon:hover {
+    background-image: url("images/triangle.png");
+    background-repeat: no-repeat;
+    background-position: center left;
+    padding-left: 1.75rem;
+   }
+   
