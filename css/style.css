@@ -29,7 +29,7 @@ ul {
 a {
   text-decoration: none;
   font-weight: bold;
-  color: #ffdd03;
+  color: #fff;
 }
 img {
   display: block;
@@ -56,7 +56,8 @@ img {
   padding: 2rem;
 }
 .nav-list a:hover {
-  background-color: #ffdd03;
+  /* background-color: #ffdd03; */
+  background-color: #fff;
   color: #080808;
   transition: all .5s;
 }
@@ -102,8 +103,7 @@ img {
   border-radius: 5px;
 }
 a.project:hover {
-  background-color: #ffdd03;
-  color: #080808;
+  background-color: #080808;
   transition: all .5s;
 }
 .project-image {
@@ -135,8 +135,11 @@ a.project:hover {
   margin-bottom: 2rem;
   flex-wrap: wrap;
 }
-.contact-links a:hover {
+.contact-links a {
   color: #080808;
+}
+.contact-links a:hover {
+  color: #d3d3d3;
 }
 
 /* Footer */
@@ -148,7 +151,7 @@ footer {
 }
 footer p {
   margin: 2rem;
-  color: #ffdd03;
+  color: #fff;
 }
 
 
