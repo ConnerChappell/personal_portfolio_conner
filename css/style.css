@@ -55,12 +55,28 @@ img {
   font-size: 2rem;
   padding: 2rem;
 }
-.nav-list a:hover {
-  /* background-color: #ffdd03; */
+/* .nav-list a:hover {
   background-color: #fff;
   color: #080808;
   transition: all .5s;
+} */
+/* Link Border Animation Start */
+.animatedBorder {
+  position: relative;
 }
+.animatedBorder:after {
+  content: '';
+  position: absolute;
+  border-bottom: 5px solid #fff;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  transition: all .5s;
+}
+.animatedBorder:hover:after {
+  right: 0;
+}
+/* Link Border Animation End */
 
 /* Welcome Section */
 #welcome-section {
