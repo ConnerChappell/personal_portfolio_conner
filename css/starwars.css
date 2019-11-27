@@ -1,6 +1,6 @@
 /* Base Styles */
 html {
-    background-color: #000;
+    background-image: url(/images/space_background.jpg);
     font-family: 'Orbitron', Helvetica, Arial, sans-serif;
 }
 h1, h2 {
