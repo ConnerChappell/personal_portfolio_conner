@@ -2,10 +2,10 @@
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  background-image: url(/images/topo_background2.png);
+  /* background-image: url(/images/topo_background2.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 }
 body {
   font-family: 'Nunito Sans', Helvetica, Arial, sans-serif;
