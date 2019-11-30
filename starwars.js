@@ -1,4 +1,5 @@
 import { people } from '/assets/people.js'
+import { films } from '/assets/films.js'
 
 console.log("I am JavaScript running in your page!")
 
