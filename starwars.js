@@ -1,10 +1,9 @@
 import { people } from '/assets/people.js'
 import { films } from '/assets/films.js'
 
-console.log("I am JavaScript running in your page!")
-
 let mainArea = document.querySelector("main")
 
+// Characters
 people.forEach((person) => {
   let personDiv = document.createElement("div")
   let name = document.createElement("h2")
@@ -22,7 +21,22 @@ people.forEach((person) => {
   personDiv.appendChild(pic)
 
   mainArea.appendChild(personDiv)
-});
+})
+
+// Films
+films.forEach((film) => {
+  let filmDiv = document.createElement("div")
+  let filmTitle = document.createElement("h2")
+  let filmCrawl = document.createElement("p")
+
+  filmTitle.textContent = film.title 
+  filmCrawl.textContent = film.opening_crawl
+
+  filmDiv.appendChild(filmTitle)
+  // filmDiv.appendChild(filmCrawl)
+
+  mainArea.appendChild(filmDiv)
+})
 
 function getCharNumber(charURL) {
   let end = charURL.lastIndexOf("/")
