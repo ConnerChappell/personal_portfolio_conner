@@ -33,7 +33,7 @@ films.forEach((film) => {
   filmCrawl.textContent = film.opening_crawl
 
   filmDiv.appendChild(filmTitle)
-  // filmDiv.appendChild(filmCrawl)
+  filmDiv.appendChild(filmCrawl)
 
   mainArea.appendChild(filmDiv)
 })
