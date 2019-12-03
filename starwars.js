@@ -23,6 +23,9 @@ people.forEach((person) => {
   mainArea.appendChild(personDiv)
 })
 
+
+let section = document.querySelector("section")
+
 // Films
 films.forEach((film) => {
   let filmDiv = document.createElement("div")
@@ -35,7 +38,7 @@ films.forEach((film) => {
   filmDiv.appendChild(filmTitle)
   filmDiv.appendChild(filmCrawl)
 
-  mainArea.appendChild(filmDiv)
+  section.appendChild(filmDiv)
 })
 
 function getCharNumber(charURL) {
