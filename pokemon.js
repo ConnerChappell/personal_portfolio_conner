@@ -9,7 +9,7 @@ class Pokemon {
   
  const newButton = document.querySelector('#newPokemon')
  newButton.addEventListener('click', function () {
-    let pokeId = prompt("Please enter a Pokemon ID")
+    let pokeId = prompt("Please enter a Pokemon ID Number")
     if (pokeId > 0 && pokeId <= 807) {
         getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
             .then(result => {
