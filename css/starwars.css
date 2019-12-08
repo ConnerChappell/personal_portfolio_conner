@@ -21,12 +21,52 @@ p {
     line-height: 1.5;
     color: #fff;
 }
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/* Nav */
+nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffe81f;
+    background-image: url(/images/star_wars_logo2.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-position-x: 5rem;
+  }
+  ul {
+    display: flex;
+    margin-right: 5rem;
+  }
+  ul a {
+    display: block;
+    font-size: 1rem;
+    padding: 1rem;
+    color: #000;
+  }
+  ul a:hover {
+    background-color: #000;
+    color: #ffe81f;
+  }
 
 /* Content Styles */
 header {
     display: flex;
     justify-content: center;
     margin: 20px;
+}
+
+#characters-heading {
+    margin-top: 10rem;
 }
 
 button {
@@ -56,28 +96,4 @@ div img {
     margin-right: auto;
     margin-bottom: 20px;
     width: 50%;
-}
-
-/* side button */
-#left_column {
-    position: fixed;
-    margin: 50px;
-    width: 50px;
-    float: left;
-    background-color: #ffe81f;
-    border-radius: 5px;
-}
-#left_column a {
-    display: block;
-    color: #000;
-    height: 200px;
-    width: 200px;
-    padding-top: 20px;
-    text-decoration: none;
-    line-height: 30px;
-    text-align: center;
-    transform: rotate(270deg);
-}
-a:visited {
-    color: #000;
 }

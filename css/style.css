@@ -55,11 +55,6 @@ img {
   font-size: 2rem;
   padding: 2rem;
 }
-/* .nav-list a:hover {
-  background-color: #fff;
-  color: #080808;
-  transition: all .5s;
-} */
 /* Link Border Animation Start */
 .animatedBorder {
   position: relative;
