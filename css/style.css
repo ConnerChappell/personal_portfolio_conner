@@ -12,7 +12,7 @@ body {
   font-size: 16px;
   font-weight: 300;
  }
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Josefin Sans', Helvetica, Arial, sans-serif;
   font-weight: 600;
   text-align: center;
@@ -22,6 +22,9 @@ h1 {
 }
 h2 {
   font-size: 4rem;
+}
+h3 {
+  font-size: 2rem;
 }
 ul {
   list-style: none;
@@ -99,6 +102,9 @@ img {
   margin: 0 auto 6rem auto;
   border-bottom: 1px dashed #080808;
   padding-bottom: 1rem;
+}
+.dgm-1600-projects {
+  
 }
 .projects-grid {
   display: grid;
