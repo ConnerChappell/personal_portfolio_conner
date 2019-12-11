@@ -30,13 +30,29 @@ let section = document.querySelector("section")
 films.forEach((film) => {
   let filmDiv = document.createElement("div")
   let filmTitle = document.createElement("h2")
+  let filmEpisode = document.createElement("h3")
+  let filmDirector = document.createElement("h3")
+  let filmDate = document.createElement("h3")
   let filmCrawl = document.createElement("p")
 
   filmTitle.textContent = film.title 
+  filmEpisode.textContent = `Episode ${film.episode_id}`
+  filmDirector.textContent = `Director : ${film.director}`
+  filmDate.textContent = `Release Date : ${film.release_date}`
   filmCrawl.textContent = film.opening_crawl
 
+  // Opening Crawl Button 
+  let crawlButton =document.createElement("button")
+  crawlButton.textContent = "Click for Opening Crawl"
+  crawlButton.addEventListener("click", () => {
+    return filmDiv.appendChild(filmCrawl)
+  })
+
   filmDiv.appendChild(filmTitle)
-  filmDiv.appendChild(filmCrawl)
+  filmDiv.appendChild(filmEpisode)
+  filmDiv.appendChild(filmDirector)
+  filmDiv.appendChild(filmDate)
+  filmDiv.appendChild(crawlButton)
 
   section.appendChild(filmDiv)
 })
@@ -51,7 +67,7 @@ function getCharNumber(charURL) {
   }
 }
 
-// Filter Buttons
+// Filter Buttons for Characters Start
 const allDivs = Array.from(document.querySelectorAll("div"))
 const mainHeader = document.querySelector("header")
 
@@ -62,7 +78,6 @@ maleButton.addEventListener("click", () => {
     let matchedDiv = allDivs.find(oneDiv => {
       return oneDiv.firstChild.textContent === character.name
     })
-    // matchedDiv.setAttribute("style", "display: none;")
     matchedDiv.className = "animated infinite bounce slow"
   })
 })
@@ -109,3 +124,4 @@ const maleCharacters = people.filter(person => person.gender === "male")
 const femaleCharacters = people.filter(person => person.gender === "female")
 const otherCharacters = people.filter(person => person.gender !== "female" && person.gender !== "male")
 const resetCharacters = people.filter(person => person.gender)
+// Filter Buttons for Characters End
