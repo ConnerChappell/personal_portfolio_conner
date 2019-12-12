@@ -15,7 +15,7 @@ let republicans = []
 let democrats = []
 let independents = []
 
-const theData = getAPIData('senators.json').then(data => {
+const theData = getAPIData('/assets/senators.json').then(data => {
     allSenators = data.results[0].members
     simpleSenators = makeSimpleMap(allSenators)
     republicans = filterSenators(simpleSenators, "R")
@@ -32,8 +32,15 @@ function makeSimpleMap(allOfThem) {
             name: `${senator.first_name} ${senator.last_name}`,
             party: senator.party,
             age: `${calculate_age(new Date(senator.date_of_birth))}`,
+            state: senator.state,
+            office: senator.office,
+            phone: senator.phone,
             gender: senator.gender,
             total_votes: senator.total_votes,
+            twitter: senator.twitter_account,
+            senate_class: senator.senate_class,
+            state_rank: senator.state_rank,
+            seniority: senator.seniority
         }
     })
     return results
@@ -41,16 +48,10 @@ function makeSimpleMap(allOfThem) {
 
 // filter example
 function filterSenators(simpleList, partyAffiliation) {
-    return simpleList.filter(senator => senator.party === "partyAffiliation")
+    return simpleList.filter(senator => senator.party === partyAffiliation)
 }
 
-// reduce example
-const testArray = [5,10,15,20,25,30,35,40,45,50,30]
-
-const testReduce = testArray.reduce((acc, num) => {
-    return acc + num
-}, 0)
-
+// reduce examples start
 function totalVotes(senatorList) {
     const results = senatorList.reduce((acc, senator) => {
         return acc + senator.total_votes
@@ -63,9 +64,11 @@ function oldestSenator(senatorList) {
         return (oldest.age || 0) > senator.age ? oldest : senator
     }, {})
 }
+// reduce examples end
 
 const container = document.querySelector('.container')
 
+// Populates DOM with senators
 function populateDOM(senator_array) {
     senator_array.forEach(senator => {
         let card = document.createElement('div')
@@ -76,7 +79,12 @@ function populateDOM(senator_array) {
         figure.setAttribute('class', 'image')
         let figureImage = document.createElement('img')
         figureImage.src = `https://www.congress.gov/img/member/${senator.id.toLowerCase()}_200.jpg`
-        figureImage.alt = 'Placeholder image'
+        figureImage.alt = 'Senator Portrait'
+        // 404 error handling
+        figureImage.addEventListener("error", event => {
+            let noImage = event.target
+            noImage.src = `images/merica.png`
+          })
 
         figure.appendChild(figureImage)
         cardImage.appendChild(figure)
@@ -86,6 +94,7 @@ function populateDOM(senator_array) {
     })
 }
 
+// Card Content
 function cardContent(senator) {
     let cardContent = document.createElement('div')
     cardContent.setAttribute('class', 'card-content')
@@ -103,25 +112,35 @@ function cardContent(senator) {
         img.src = `images/democrat.png`
     }
     if(senator.party === "ID") {
-        img.src = `ttps://bulma.io/images/placeholders/96x96.png`
+        img.src = `images/independent.png`
     }
-    img.alt = 'Placeholder image'
+    img.alt = 'Placeholder Image'
+
     let mediaContent = document.createElement('div')
     mediaContent.setAttribute('class', 'media-content')
+
     let titleP = document.createElement('p')
     titleP.setAttribute('class', 'title is-5')
     titleP.textContent = senator.name
+
     let subtitleP = document.createElement('p')
     subtitleP.setAttribute('class', 'subtitle is-6')
-    // subtitleP.textContent = `foo`
+    subtitleP.textContent = senator.state
+
+    let rank = document.createElement('p')
+    rank.setAttribute('class', 'content')
+    rank.textContent = `State Rank: ${senator.state_rank}`
 
     let contentDiv = document.createElement('div')
     contentDiv.setAttribute('class', 'content')
-    contentDiv.textContent = `Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Phasellus nec iaculis mauris.`
-    let contentBreak = document.createElement('br')
+    contentDiv.textContent = `Senate Class: ${senator.senate_class}`
+
+    let seniorityP = document.createElement('p')
+    seniorityP.setAttribute('class', 'content')
+    seniorityP.textContent = `Seniority: ${senator.seniority}`
+
     let ageP = document.createElement('p')
-    ageP.textContent = senator.age
+    ageP.textContent = `Age: ${senator.age}`
 
     mediaContent.appendChild(titleP)
     mediaContent.appendChild(subtitleP)
@@ -130,16 +149,27 @@ function cardContent(senator) {
     media.appendChild(mediaLeft)
     media.appendChild(mediaContent)
 
-    contentDiv.appendChild(contentBreak)
+    contentDiv.appendChild(rank)
+    contentDiv.appendChild(seniorityP)
     contentDiv.appendChild(ageP)
     cardContent.appendChild(media)
     cardContent.appendChild(contentDiv)
     return cardContent
 }
 
+// Calculates age of senators
 function calculate_age(dob) { 
     let diff_ms = Date.now() - dob.getTime();
     let age_dt = new Date(diff_ms); 
-  
     return Math.abs(age_dt.getUTCFullYear() - 1970);
 }
+function sortSenatorsByAge(senatorList) {
+    return senatorList.sort(function(a, b) {
+      return a.age - b.age;
+    });
+  }
+
+
+
+
+  
