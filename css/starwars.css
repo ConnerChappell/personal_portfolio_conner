@@ -114,11 +114,26 @@ section {
 }
 section div {
     background: none;
+    height: 625px;
+    overflow: hidden;
 }
 section p {
+    font-family: 'Franklin Gothic Medium', Helvetica, Arial, sans-serif;
+    color: #ffe81f;
     text-align: left;
     margin-top: 2rem;
     line-height: 2rem;
+    animation: 20s crawl;
+}
+@keyframes crawl {
+    from {
+        margin-top: 100%;
+        height: 100%;
+    }
+    to {
+        margin-top: 2rem;
+        height: 100%;
+    }
 }
 section button {
     display: block;
