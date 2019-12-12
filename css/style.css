@@ -104,9 +104,6 @@ img {
   border-bottom: 1px dashed #080808;
   padding-bottom: 1rem;
 }
-.dgm-1600-projects {
-  
-}
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
